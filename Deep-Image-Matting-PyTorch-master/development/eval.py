@@ -10,10 +10,9 @@ from config import device
 from data_gen import data_transforms
 from utils import ensure_folder
 
-IMG_FOLDER = 'data/alphamatting/input_lowres'
-TRIMAP_FOLDERS = ['data/alphamatting/trimap_lowres/Trimap1', 'data/alphamatting/trimap_lowres/Trimap2',
-                  'data/alphamatting/trimap_lowres/Trimap3']
-OUTPUT_FOLDERS = ['images/alphamatting/output_lowres/Trimap1', 'images/alphamatting/output_lowres/Trimap2', 'images/alphamatting/output_lowres/Trimap3', ]
+IMG_FOLDER = 'data/input'
+TRIMAP_FOLDERS = ['data/Trimap']
+OUTPUT_FOLDERS = ['data/output']
 
 if __name__ == '__main__':
     checkpoint = 'BEST_checkpoint.tar'
@@ -24,11 +23,11 @@ if __name__ == '__main__':
 
     transformer = data_transforms['valid']
 
-    ensure_folder('images')
-    ensure_folder('images/alphamatting')
+    # ensure_folder('data/input')
+    # ensure_folder('data/Trimap')
+    ensure_folder(IMG_FOLDER)
+    ensure_folder(TRIMAP_FOLDERS[0])
     ensure_folder(OUTPUT_FOLDERS[0])
-    ensure_folder(OUTPUT_FOLDERS[1])
-    ensure_folder(OUTPUT_FOLDERS[2])
 
     files = [f for f in os.listdir(IMG_FOLDER) if f.endswith('.png')]
 
@@ -44,7 +43,7 @@ if __name__ == '__main__':
         image = transformer(image)
         x[0:, 0:3, :, :] = image
 
-        for i in range(3):
+        for i in range(1):
             filename = os.path.join(TRIMAP_FOLDERS[i], file)
             print('reading {}...'.format(filename))
             trimap = cv.imread(filename, 0)
