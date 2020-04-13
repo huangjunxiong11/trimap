@@ -5,6 +5,9 @@ __pycache__/
 Deep-Image-Matting-PyTorch-master/Combined_Dataset
 Deep-Image-Matting-PyTorch-master/data
 Deep-Image-Matting-PyTorch-master/images
+Deep-Image-Matting-PyTorch-master/development
+Deep-Image-Matting-PyTorch-master/BEST_checkpoint.tar
+
 .idea
 # C extensions
 *.so
