@@ -2,7 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+Deep-Image-Matting-PyTorch-master/Combined_Dataset
+Deep-Image-Matting-PyTorch-master/data
+Deep-Image-Matting-PyTorch-master/images
+.idea
 # C extensions
 *.so
 
